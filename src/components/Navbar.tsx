@@ -1,9 +1,23 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import { signInWithPopup, signOut } from 'firebase/auth';
+import { auth, Providers } from '../config/firebase';
 
 const Navbar = () => {
     const [isVisible, setIsVisible] = useState(false)
+
+    const signOutOnClick = () => {
+        signOut(auth)
+        location.reload();
+    }
+
+    const signInOnClick = async () => {
+        const response = await signInWithPopup(auth, Providers. google);
+        if ( response.user ) {
+            location.reload();
+        }
+    }
 
     const dropDown = () => {
         setIsVisible(!isVisible)
@@ -50,10 +64,31 @@ const Navbar = () => {
                     </Button>
                     <Button className='p-3 m-5 bg-black justify-center'>
                         <div>
-                            <Link to='/battle' onClick={clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
-                            text-white hover:text-red-500 mr-4'>Battle</Link>
+                            <Link to='/pokemonsearch' onClick={clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0
+                            text-white hover:text-red-500 mr-4'>Search</Link>
                         </div>
                     </Button>
+                    {
+                        !auth.currentUser ? 
+
+                        <Button className='p-3 m-5 bg-black justify-center'>
+                            <div>
+                                <Link to='/' onClick={ () => {signInOnClick()}} className='flex place-items-center mt-4 
+                                lg:inline-block lg:mt-0 text-white hover:text-red-500'>
+                                    Login
+                                </Link>
+                            </div>
+                        </Button>
+                        :
+                        <Button className='p-3 m-5 bg-black justify-center'>
+                            <div>
+                                <Link to='/' onClick={ () => {signOutOnClick()}} className='flex place-items-center mt-4 
+                                lg:inline-block lg:mt-0 text-white hover:text-red-500'>
+                                    Logout
+                                </Link>
+                            </div>
+                        </Button>
+                    }
                 </div>
             </div> 
             ) : ( 

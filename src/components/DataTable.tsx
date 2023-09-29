@@ -54,7 +54,7 @@ const DataTable = () => {
             <Button onClick={handleOpen} className='p-3 bg-black text-white m-3 rounded hover:bg-red-500'>Update</Button>
             <Button onClick={deleteData} className='p-3 bg-black text-white m-3 rounded hover:bg-red-500'>Delete</Button>
         </div>
-        <div className={ open ? 'hidden' : 'container-sm mx-10 my-5 flex flex-col'}
+        <div className={ open ? 'hidden' : 'container-fluid my-5 flex flex-col'}
             style={{ height: 400 }}
         >
             <h2 className='p-3 bg-slate-300 my-2 rounded text-center'>My Pokemon</h2>

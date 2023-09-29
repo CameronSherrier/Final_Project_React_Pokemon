@@ -1,12 +1,13 @@
 import pokemonHome from '../pages/Home';
 import pokemonDashboard from '../pages/Dashboard';
 import About from '../pages/About';
-import Battle from '../pages/Battle';
+import pokemonSearch from '../pages/LookUp';
 
 interface RouteType {
     path: string,
     component: () => JSX.Element,
-    name: string
+    name: string,
+    protected: boolean
 }
 
 const routes: RouteType[] = [
@@ -14,21 +15,25 @@ const routes: RouteType[] = [
       path: "",
       component: pokemonHome,
       name: "Home Screen",
+      protected: false,
     },
     {
       path: "/dashboard",
       component: pokemonDashboard,
       name: "Dashboard",
+      protected: true,
     },
     {
       path: "/about",
       component: About,
       name: "About Page",
+      protected: false,
     },
     {
-      path: "/battle",
-      component: Battle,
-      name: "Battle Page",
+      path: "/pokemonsearch",
+      component: pokemonSearch,
+      name: "Search for Pokemon",
+      protected: true
     }
   ]
 

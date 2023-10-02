@@ -9,9 +9,7 @@ const About = () => {
     >
      <div className='flex flex-col place-items-center h-screen'>
         <h3 className='p-5 bg-red-500 bg-opacity-80 text-white rounded font-bold my-auto'>This app will allow you to 
-        utilize your Pokemon knowledge and battle it out in a turn-based event. Do you have what it takes 
-        to be the best?! Test your skills now by clicking on the 'Battle' button above. Good luck 
-        and let the best Pokemon Trainer win!</h3>
+        look up any Pokemon and their stats. Click on the 'Search' button above to check it out!</h3>
      </div>
     </div>
   )

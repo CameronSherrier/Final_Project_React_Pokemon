@@ -10,20 +10,15 @@ const spinnerStyle = {
     borderwidth: '1rem',
 };
 
-const spinnerWrapperStyle = {
-    textAlign: 'center',
-    marginTop: '50px',
-}
-
 export default function DisplayPokemon() {
 
     const [ error, setError ] = useState(false)
-    const [ pokemon, setPokemon ] = useState();
+    const [ pokemon, setPokemon ] = useState<any>();
     const [ errorMsg, setErrorMsg ] = useState('');
     const [ loading, setLoading ] = useState(false);
 
 
-    const getPokemon = async (query) => {
+    const getPokemon = async (query: any) => {
         if (!query) {
             setErrorMsg('You must enter a Pokemon name!');
             setError(true);
@@ -53,7 +48,7 @@ export default function DisplayPokemon() {
             ): null}
             <Search getPokemon={getPokemon} />
             {loading ? (
-                <div style={spinnerWrapperStyle}>
+                <div>
                 <Spinner style={spinnerStyle} animation='border' />
                 </div>
             ) : null}

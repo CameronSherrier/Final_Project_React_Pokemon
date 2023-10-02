@@ -1,7 +1,7 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { ProgressBar } from 'react-bootstrap';
 
-export default function PokemonData( props ) {
+export default function PokemonData( props: any ) {
     
     return (
         <Container className='mt-2'>
@@ -14,13 +14,13 @@ export default function PokemonData( props ) {
                         </Card.Header>
                         <Card.Body>
                             <h5 className='font-bold'>Abilities</h5>
-                            {props.abilities.map( (ability, key) => (
+                            {props.abilities.map( (ability: any, key: any) => (
                                 <div key={key}>
                                     <span>{ability.ability.name}</span>
                                 </div>
                             ))}
                             <h5 className='font-bold'>Types</h5>
-                            {props.types.map( (type, key) => (
+                            {props.types.map( (type: any, key: any) => (
                                 <div key={key}>
                                     <span>{type.type.name}</span>
                                 </div>
@@ -32,7 +32,7 @@ export default function PokemonData( props ) {
                     <Card>
                         <Card.Body>
                             <h1 className='text-2xl font-extrabold'>Base Stats</h1>
-                            {props.stats.map( (stat, key) => (
+                            {props.stats.map( (stat: any, key: any) => (
                                 <div key={key}>
                                     <span>{stat.stat.name}</span>
                                     <ProgressBar now={stat.base_stat} max={225} label={stat.base_stat} />

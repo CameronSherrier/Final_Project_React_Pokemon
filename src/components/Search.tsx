@@ -1,7 +1,7 @@
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 import { useState } from 'react';
 
-export default function Search( props ) {
+export default function Search( props: any ) {
     
     const [ search, setSearch ] = useState('');
 
@@ -15,7 +15,7 @@ export default function Search( props ) {
                             placeholder='Search for Pokemon'/>
                     </Col>
                     <Col sm={12} className='my-1 text-center'>
-                        <Button onClick={ (e) => props.getPokemon(search)} className='text-white bg-red-500'>
+                        <Button onClick={ () => props.getPokemon(search)} className='text-white bg-red-500'>
                             Search
                         </Button>
                     </Col>
